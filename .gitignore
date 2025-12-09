@@ -1,0 +1,58 @@
+# Node modules
+node_modules/
+frontend/node_modules/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+backend/__pycache__/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+backend/railguard.db
+
+# Environment files
+.env
+.env.local
+backend/.env
+frontend/.env.local
+
+# Storage
+backend/storage/alerts/*
+!backend/storage/alerts/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build files
+frontend/.next/
+frontend/out/
+frontend/build/
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Model files (large)
+*.pt
+backend/yolov8n.pt

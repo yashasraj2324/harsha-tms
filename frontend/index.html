@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RailGuard V2 - Live Monitoring Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">🚂</div>
+                    <div>
+                        <h1>RailGuard V2</h1>
+                        <p class="subtitle">AI-Powered Railway Safety Monitor</p>
+                    </div>
+                </div>
+                <div class="connection-status">
+                    <div class="status-indicator" id="connectionStatus">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Connecting...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Dashboard -->
+    <main class="main-content">
+        <div class="container">
+            <!-- System Status Card -->
+            <div class="status-card" id="systemStatus">
+                <div class="status-header">
+                    <h2>System Status</h2>
+                    <div class="status-badge" id="overallStatus">
+                        <span class="badge-dot"></span>
+                        <span class="badge-text">SAFE</span>
+                    </div>
+                </div>
+                <div class="status-stats">
+                    <div class="stat-item">
+                        <div class="stat-label">Total Alerts</div>
+                        <div class="stat-value" id="totalAlerts">0</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Danger Alerts</div>
+                        <div class="stat-value danger" id="dangerAlerts">0</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Safe Alerts</div>
+                        <div class="stat-value safe" id="safeAlerts">0</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Last Update</div>
+                        <div class="stat-value small" id="lastUpdate">Never</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Alerts Feed -->
+            <div class="alerts-section">
+                <div class="section-header">
+                    <h2>🔴 Live Alert Feed</h2>
+                    <div class="live-indicator">
+                        <span class="pulse-dot"></span>
+                        <span>LIVE</span>
+                    </div>
+                </div>
+                
+                <div class="alerts-container" id="alertsContainer">
+                    <!-- Alerts will be dynamically inserted here -->
+                    <div class="empty-state" id="emptyState">
+                        <div class="empty-icon">📡</div>
+                        <h3>Waiting for alerts...</h3>
+                        <p>The system is monitoring. New alerts will appear here in real-time.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Alert Template (Hidden) -->
+    <template id="alertTemplate">
+        <div class="alert-card" data-alert-id="">
+            <div class="alert-header">
+                <div class="alert-status-badge">
+                    <span class="badge-dot"></span>
+                    <span class="badge-text"></span>
+                </div>
+                <div class="alert-time"></div>
+            </div>
+            
+            <div class="alert-body">
+                <div class="alert-image-container">
+                    <img class="alert-image" src="" alt="Alert Image">
+                    <div class="trigger-badge"></div>
+                </div>
+                
+                <div class="alert-details">
+                    <!-- YOLO Detection -->
+                    <div class="detection-section">
+                        <h4>🔍 Stage 1: YOLOv8 Detection</h4>
+                        <div class="detection-result">
+                            <div class="detection-flag"></div>
+                            <div class="detection-items"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Gemini Analysis -->
+                    <div class="gemini-section">
+                        <h4>🤖 Stage 2: Gemini AI Analysis</h4>
+                        <div class="gemini-status"></div>
+                        <div class="gemini-reason"></div>
+                        <div class="gemini-confidence"></div>
+                    </div>
+                    
+                    <!-- Final Verdict -->
+                    <div class="final-verdict">
+                        <h4>🎯 Final Verdict</h4>
+                        <div class="verdict-text"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script src="app.js"></script>
+</body>
+</html>
