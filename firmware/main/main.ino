@@ -25,6 +25,7 @@ const char* BACKEND_URL = "http://192.168.111.84:8000/analyze";
 // Sensor Pins
 #define TRIG_PIN 12
 #define ECHO_PIN 13
+#define VIBRATION_PIN 14    // SW-420 Vibration Sensor (Digital Out)
 
 // LEDs
 #define STATUS_LED_PIN 33   // Red (Active LOW)
@@ -34,6 +35,7 @@ const char* BACKEND_URL = "http://192.168.111.84:8000/analyze";
 #define DISTANCE_MIN_OBSTACLE 100  // cm
 #define DISTANCE_MAX_HOLE 150      // cm
 #define ULTRASONIC_POLL_MS 200     // Check sensors every 200ms
+#define VIBRATION_DEBOUNCE_MS 2000 // Ignore vibrations within 2 seconds of last trigger
 
 // ==================== 2. AI THINKER PINS ====================
 #define PWDN_GPIO_NUM     32
@@ -57,6 +59,8 @@ const char* BACKEND_URL = "http://192.168.111.84:8000/analyze";
 httpd_handle_t stream_httpd = NULL;
 String triggerReason = "";
 unsigned long lastUltrasonicPoll = 0;
+unsigned long lastVibrationTrigger = 0;
+bool vibrationDetected = false;
 
 // The "Traffic Cop" Flag - Controls who gets the camera
 volatile bool isUploading = false; 
@@ -76,6 +80,7 @@ void setup() {
 
   pinMode(TRIG_PIN, OUTPUT);
   pinMode(ECHO_PIN, INPUT);
+  pinMode(VIBRATION_PIN, INPUT_PULLUP); // SW-420: LOW = vibration detected
   pinMode(STATUS_LED_PIN, OUTPUT);
   pinMode(FLASH_LED_PIN, OUTPUT);
   
@@ -112,6 +117,25 @@ void loop() {
   }
 
   unsigned long currentMillis = millis();
+
+  // --- Vibration Sensor Check ---
+  int vibrationState = digitalRead(VIBRATION_PIN);
+  
+  // SW-420 outputs LOW when vibration is detected
+  if (vibrationState == LOW && !vibrationDetected) {
+    // Check debounce time
+    if (currentMillis - lastVibrationTrigger >= VIBRATION_DEBOUNCE_MS) {
+      Serial.println("!! TRIGGER: Vibration Detected !!");
+      vibrationDetected = true;
+      lastVibrationTrigger = currentMillis;
+      triggerReason = "VIBRATION";
+      captureAndUpload();
+      
+      // Reset detection flag after a short delay
+      delay(100);
+      vibrationDetected = false;
+    }
+  }
 
   // --- Ultrasonic Check ---
   if (currentMillis - lastUltrasonicPoll >= ULTRASONIC_POLL_MS) {

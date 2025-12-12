@@ -230,7 +230,7 @@ export default function Dashboard() {
             <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center">
                 <div className="text-center">
                     <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-emerald-500 mx-auto mb-4"></div>
-                    <p className="text-white text-xl font-semibold">Initializing RailGuard V2...</p>
+                    <p className="text-white text-xl font-semibold">Initializing Train System Monitoring...</p>
                 </div>
             </div>
         );
@@ -310,8 +310,8 @@ export default function Dashboard() {
             {/* Main Dashboard */}
             <div
                 className={`min-h-screen transition-all duration-500 ${isDanger
-                        ? 'bg-gradient-to-br from-red-950 via-red-900 to-red-950'
-                        : 'bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900'
+                    ? 'bg-gradient-to-br from-red-950 via-red-900 to-red-950'
+                    : 'bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900'
                     }`}
             >
                 {/* Header */}
@@ -323,8 +323,8 @@ export default function Dashboard() {
                                     <Shield className="w-7 h-7 text-white" />
                                 </div>
                                 <div>
-                                    <h1 className="text-2xl font-bold text-white">RailGuard V2</h1>
-                                    <p className="text-sm text-gray-400">Local SQLite + SSE Real-time</p>
+                                    <h1 className="text-2xl font-bold text-white">Train System Monitoring</h1>
+                                    <p className="text-sm text-gray-400">Real-Time Railway Safety & Analytics</p>
                                 </div>
                             </div>
                             <div className="flex items-center space-x-6">
@@ -379,16 +379,16 @@ export default function Dashboard() {
                                     <div
                                         key={msg.id}
                                         className={`p-4 rounded-lg border transition-all duration-300 animate-fade-in ${msg.final_status === 'DANGER'
-                                                ? 'bg-red-900/20 border-red-500/30'
-                                                : 'bg-emerald-900/20 border-emerald-500/30'
+                                            ? 'bg-red-900/20 border-red-500/30'
+                                            : 'bg-emerald-900/20 border-emerald-500/30'
                                             }`}
                                     >
                                         <div className="flex items-start justify-between mb-2">
                                             <div className="flex items-center space-x-2">
                                                 <span
                                                     className={`px-2 py-1 rounded text-xs font-bold ${msg.final_status === 'DANGER'
-                                                            ? 'bg-red-500 text-white'
-                                                            : 'bg-emerald-500 text-white'
+                                                        ? 'bg-red-500 text-white'
+                                                        : 'bg-emerald-500 text-white'
                                                         }`}
                                                 >
                                                     {msg.final_status}
@@ -420,8 +420,8 @@ export default function Dashboard() {
                     {/* Status Banner */}
                     <div
                         className={`mb-8 rounded-2xl p-8 shadow-2xl transition-all duration-500 ${isDanger
-                                ? 'bg-gradient-to-r from-red-600 to-red-700 animate-pulse'
-                                : 'bg-gradient-to-r from-emerald-600 to-teal-700'
+                            ? 'bg-gradient-to-r from-red-600 to-red-700 animate-pulse'
+                            : 'bg-gradient-to-r from-emerald-600 to-teal-700'
                             }`}
                     >
                         <div className="flex items-center justify-between">
@@ -456,8 +456,8 @@ export default function Dashboard() {
                                         <p className="text-gray-400 text-sm">Status</p>
                                         <p
                                             className={`text-lg font-semibold ${latestAlert.final_status === 'DANGER'
-                                                    ? 'text-red-400'
-                                                    : 'text-emerald-400'
+                                                ? 'text-red-400'
+                                                : 'text-emerald-400'
                                                 }`}
                                         >
                                             {latestAlert.final_status}
@@ -517,7 +517,7 @@ export default function Dashboard() {
                 {/* Footer */}
                 <footer className="border-t border-white/10 mt-12 py-6">
                     <div className="container mx-auto px-6 text-center text-gray-400 text-sm">
-                        <p>RailGuard V2 © 2024 | Local Storage | YOLOv8 + Gemini | SSE Real-time + Live Video</p>
+                        <p>Train System Monitoring © 2024 | AI-Powered Railway Monitoring | YOLOv8 + Gemini | Real-time Analysis</p>
                     </div>
                 </footer>
             </div>

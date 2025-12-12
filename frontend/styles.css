@@ -1,36 +1,36 @@
 /**
- * RailGuard V2 - Dashboard Styles
+ * Train System Monitoring - Dashboard Styles
  * Modern, Premium Design with Real-Time Animations
  */
 
 /* ==================== VARIABLES ==================== */
 :root {
-    /* Colors */
-    --color-bg: #0a0e1a;
-    --color-bg-secondary: #111827;
-    --color-bg-card: #1a1f35;
-    --color-bg-card-hover: #1f2540;
+    /* Colors - Purple/Teal Theme */
+    --color-bg: #0f0a1e;
+    --color-bg-secondary: #1a1230;
+    --color-bg-card: #251942;
+    --color-bg-card-hover: #2d1f4f;
 
-    --color-text-primary: #f9fafb;
-    --color-text-secondary: #9ca3af;
-    --color-text-muted: #6b7280;
+    --color-text-primary: #f5f3ff;
+    --color-text-secondary: #c4b5fd;
+    --color-text-muted: #8b7ab8;
 
-    --color-danger: #ef4444;
-    --color-danger-bg: rgba(239, 68, 68, 0.1);
-    --color-danger-glow: rgba(239, 68, 68, 0.3);
+    --color-danger: #ff4757;
+    --color-danger-bg: rgba(255, 71, 87, 0.15);
+    --color-danger-glow: rgba(255, 71, 87, 0.4);
 
-    --color-safe: #10b981;
-    --color-safe-bg: rgba(16, 185, 129, 0.1);
-    --color-safe-glow: rgba(16, 185, 129, 0.3);
+    --color-safe: #06d6a0;
+    --color-safe-bg: rgba(6, 214, 160, 0.15);
+    --color-safe-glow: rgba(6, 214, 160, 0.4);
 
-    --color-warning: #f59e0b;
-    --color-warning-bg: rgba(245, 158, 11, 0.1);
+    --color-warning: #ffd93d;
+    --color-warning-bg: rgba(255, 217, 61, 0.15);
 
-    --color-info: #3b82f6;
-    --color-info-bg: rgba(59, 130, 246, 0.1);
+    --color-info: #6c5ce7;
+    --color-info-bg: rgba(108, 92, 231, 0.15);
 
-    --color-border: rgba(255, 255, 255, 0.1);
-    --color-border-hover: rgba(255, 255, 255, 0.2);
+    --color-border: rgba(197, 181, 253, 0.15);
+    --color-border-hover: rgba(197, 181, 253, 0.3);
 
     /* Spacing */
     --spacing-xs: 0.5rem;
@@ -123,7 +123,7 @@ body {
 .logo h1 {
     font-size: 1.75rem;
     font-weight: 800;
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    background: linear-gradient(135deg, #a78bfa, #06d6a0, #fbbf24);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -619,7 +619,7 @@ body {
 
 .confidence-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--color-safe), var(--color-info));
+    background: linear-gradient(90deg, #06d6a0, #6c5ce7, #a78bfa);
     transition: width 1s ease-out;
 }
 

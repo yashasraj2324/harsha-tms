@@ -197,6 +197,7 @@ def stage2_gemini_verification(image_bytes: bytes, yolo_result: dict, trigger_re
             3. Track misalignment or gaps (HOLES)
             4. Structural damage to sleepers
             5. Any subtle defects
+            6. For VIBRATION triggers: Check for train approaching, track deformation, or anomalies
             
             Return ONLY JSON:
             {{
@@ -309,6 +310,9 @@ async def analyze_image(
             run_gemini = True
         elif trigger_reason == "HOLE":
             print("[PIPELINE] HOLE trigger → Running Gemini")
+            run_gemini = True
+        elif trigger_reason == "VIBRATION":
+            print("[PIPELINE] VIBRATION trigger → Running Gemini")
             run_gemini = True
         
         if run_gemini:

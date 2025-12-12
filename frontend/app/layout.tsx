@@ -5,8 +5,8 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-    title: 'RailGuard - Railway Safety Monitoring',
-    description: 'Real-time railway track defect detection system using ESP32-CAM and AI',
+    title: 'Train System Monitoring - Railway Safety Analytics',
+    description: 'Real-time train track monitoring system using ESP32-CAM, AI, and vibration sensors for railway safety',
 };
 
 export default function RootLayout({
